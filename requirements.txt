@@ -18,6 +18,6 @@ dlib-bin
 av
 streamlit_webrtc
 #win10toast 
-#win10toast-click
+
 streamlit-extras
-ToastNotifier
+
