@@ -253,30 +253,25 @@ if pre :
     st.session_state.clear()
     
     #try:
-        prediction_monture,prediction_materaiux=make_prediction_monture(genre, select_type, shape, select_style, select_uti)
+     
+    prediction_monture,prediction_materaiux=make_prediction_monture(genre, select_type, shape, select_style, select_uti)
         # st.write(f"<h4>la forme de votre  visage est : <span style='color: #3e07b4;'>{shape}</span> </h4> " , unsafe_allow_html=True,)
         
-        st.write(f"<h4>La monture faite pour vous est  :<span style='color: #3e07b4;'>{prediction_monture}</span> </h4>",unsafe_allow_html=True,)
+    st.write(f"<h4>La monture faite pour vous est  :<span style='color: #3e07b4;'>{prediction_monture}</span> </h4>",unsafe_allow_html=True,)
         
         
-        message = f"<h4> Pour votre usage : {select_uti}, il est recommandé d'utiliser des montures qui sont fabriquées avec l'un de ces matériaux : <span style='color: #3e07b4;'>{prediction_materaiux}</span></h4>"
-        st.markdown(message, unsafe_allow_html=True)
+    message = f"<h4> Pour votre usage : {select_uti}, il est recommandé d'utiliser des montures qui sont fabriquées avec l'un de ces matériaux : <span style='color: #3e07b4;'>{prediction_materaiux}</span></h4>"
+    st.markdown(message, unsafe_allow_html=True)
         #st.write(f"<h4>Pour votre usage : { select_uti } ,il est recommandé d'utiliser des montures qui sont fabriqués avec l'un de ces materiaux :</h4> " , prediction_materaiux,unsafe_allow_html=True,)
-        st.write("")
+    st.write("")
+    encoded_select_type = ""
+    valid_formes_soleil_katyos = ["Aviator", "Carrées", "Masque", "Oeil de chat", "Ovales", "Papillon", "Pilote", "Rectangulaires", "Rondes"]
+    valid_formes_de_vue_katyos = ["Carrées", "Oeil de chat", "Ovales", "Papillon", "Pilote", "Rectangulaires", "Rondes"]
+    encoded_select_type = select_type.replace(" ", "-")
+    encoded_prediction_monture=prediction_monture.replace(" ", "+")
         
         
-        
-        
-        
-        
-        encoded_select_type = ""
-        valid_formes_soleil_katyos = ["Aviator", "Carrées", "Masque", "Oeil de chat", "Ovales", "Papillon", "Pilote", "Rectangulaires", "Rondes"]
-        valid_formes_de_vue_katyos = ["Carrées", "Oeil de chat", "Ovales", "Papillon", "Pilote", "Rectangulaires", "Rondes"]
-        encoded_select_type = select_type.replace(" ", "-")
-        encoded_prediction_monture=prediction_monture.replace(" ", "+")
-        
-        
-        if select_type == "de soleil" and prediction_monture in valid_formes_soleil_katyos:
+    if select_type == "de soleil" and prediction_monture in valid_formes_soleil_katyos:
         
         url = f"https://katyos.com/6-lunettes-{encoded_select_type}-?q=Formes-{encoded_prediction_monture}"
         
@@ -287,7 +282,7 @@ if pre :
         st.write(message, unsafe_allow_html=True)
         
         
-        elif select_type == "de vue" and prediction_monture in valid_formes_de_vue_katyos:
+    elif select_type == "de vue" and prediction_monture in valid_formes_de_vue_katyos:
         
         
         url = f"https://katyos.com/3-lunettes-{encoded_select_type}-?q=Formes-{encoded_prediction_monture}"
@@ -295,7 +290,7 @@ if pre :
         st.subheader("Vous pouvez trouver votre monture dans notre mall :")
         message = f"[Cliquez ici pour accéder au site]({url})"
         st.markdown(message, unsafe_allow_html=True)
-        else:
+    else:
         
         
         error_message = "Cette monture n'est pas encore disponible dans notre site ,Veuillez visiter notre site ultérieurement."
