@@ -21,3 +21,4 @@ streamlit_webrtc
 beautifulsoup4
 streamlit-extras
 
+ pywin32
