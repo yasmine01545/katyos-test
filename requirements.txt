@@ -17,5 +17,5 @@ tensorflow-cpu
 dlib-bin
 av
 streamlit_webrtc
-win10toast 
-streamlit-extras
+#win10toast 
+#streamlit-extras
