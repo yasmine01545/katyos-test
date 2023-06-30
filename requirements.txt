@@ -20,4 +20,4 @@ streamlit_webrtc
 #win10toast 
 beautifulsoup4
 streamlit-extras
-pypiwin32
+
