@@ -305,7 +305,7 @@ if pre :
     except NameError:
         
     
-        st.write("Please upload an image first")
+        st.write("Veuillez SVP Télecharger une photo avant")
    
 
 
