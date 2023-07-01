@@ -347,6 +347,6 @@ try:
 
 
 except Exception as e:
-    st.write("Veuillez SVP sélectionner autre images...")
+    st.write("Veuillez SVP sélectionner autre image...")
 
 
