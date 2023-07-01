@@ -176,7 +176,7 @@ elif 'cv2_img' in st.session_state:
 else:
     st.write(f"<h4>Veuillez SVP Télecharger une photo avant </h4> " , unsafe_allow_html=True,)
 
-st.session_state.clear()
+#st.session_state.clear()
 
 st.title("Veuillez sélectionner quelques options supplémentaires")
 st.markdown('------')
