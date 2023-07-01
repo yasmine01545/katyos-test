@@ -20,6 +20,7 @@ if (
     st.session_state.btn_mesure = False  # store the variable outside of the app
 if "btn_predir" not in st.session_state:
     st.session_state.btn_predir = False  # create a session
+        
 st.title("Télécharger une Photo de Profile")
 st.markdown('------')
 image = st.file_uploader(
@@ -320,65 +321,34 @@ btn = st.markdown("""
 
 
 
-#image = st.file_uploader(
- #   "Veuillez télécharger une photo de profil",
-  #  type=["png", "jpg", "jpeg", "bmp", "svg"],
-#)
+
 if image is not None:
-    #col1,col2,col3=st.columns(3)
-
-    #col2.image(image)
-    pil_image = Image.open(io.BytesIO(image.read()))
-    
-    image_array = np.array(pil_image)
-
-    # Initialize and store image_array in session state
-    st.session_state.image_array = image_array
-       
-    #st.session_state.btn_mesure = True
-    
-    img1 = analyze_facial_features(image_array)
-    col1,col2,col3=st.columns(3)
-    col2.image(img1)
-    shape, pred, new_img = predict_face_shape(image_array) ##vgg  sur extracted 
-    #shape, pred, new_img = predict_face_shape(img1)  ##vgg sur dlib chtarhom ghaltin
-    
-    st.write(
-f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} %</h2>",
-unsafe_allow_html=True,)
-    col1,col2,col3,col4,col5,col6=st.columns(6)
-    btn_suivat=col6.button("suivant")   
-    if btn_suivat:
-        switch_page("Régles") 
-
-
-    #col1,col2,col3,col4=st.columns(4)
-   # btn_mesure = col2.button("Les Distances de Votre Visage", key="id_photo")
-   # btn_predir = col3.button("déterminer votre forme", key="predir_photo")
-
-    #if btn_mesure:
+    try:
+            pil_image = Image.open(io.BytesIO(image.read()))
+            
+            image_array = np.array(pil_image)
         
+            # Initialize and store image_array in session state
+            st.session_state.image_array = image_array
+               
+            #st.session_state.btn_mesure = True
+            
+            img1 = analyze_facial_features(image_array)
+            col1,col2,col3=st.columns(3)
+            col2.image(img1)
+            shape, pred, new_img = predict_face_shape(image_array) ##vgg  sur extracted 
+            #shape, pred, new_img = predict_face_shape(img1)  ##vgg sur dlib chtarhom ghaltin
+            
+            st.write(
+        f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} %</h2>",
+        unsafe_allow_html=True,)
+            col1,col2,col3,col4,col5,col6=st.columns(6)
+            btn_suivat=col6.button("suivant")   
+            if btn_suivat:
+                switch_page("Régles") 
+    except:
         
-        #st.session_state.btn_mesure = True
-     #   img1 = analyze_facial_features(image_array)
-      #  col1,col2,col3=st.columns(3)
-       # col2.image(img1)
-       # shape, pred, new_img = predict_face_shape(image_array) ##vgg  sur extracted 
-        #shape, pred, new_img = predict_face_shape(img1)  ##vgg sur dlib chtarhom ghaltin
-       
-        #st.write(
-   # f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} %</h2>",
-   # unsafe_allow_html=True,)
-        
+            st.write("SVP esseyer une autre image")
 
-    
-   
-    #if btn_predir:
-    #    st.session_state.btn_predir = True
-    #    shape, pred, new_img = predict_face_shape(image_array)
-    #    col1,col2,col3=st.columns(3)
-    #    col2.image(new_img, caption=" bounding box on extracted face")
-    #    st.write(
-    #f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} % </h2>",
-    #unsafe_allow_html=True,
-#)
+
+
