@@ -306,7 +306,7 @@ try:
         col1,col2,col3=st.columns(3)
         if img1 is  None:
                 col1.write("Veuillez SVP suivre les conseils")
-                
+                st.session_state.clear()
         else:
                 col2.image(img1)
 
