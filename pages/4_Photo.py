@@ -321,36 +321,32 @@ btn = st.markdown("""
 
 
 
+try:
+    if image is not None:
+        #col1,col2,col3=st.columns(3)
+
+        #col2.image(image)
+        
+            pil_image = Image.open(io.BytesIO(image.read()))
+            image_array = np.array(pil_image)
+            # Initialize and store image_array in session state
+            st.session_state.image_array = image_array
+            img1 = analyze_facial_features(image_array)
+            col1,col2,col3=st.columns(3)
+            col2.image(img1)
+            shape, pred, new_img = predict_face_shape(image_array) ##vgg  sur extracted 
+            #shape, pred, new_img = predict_face_shape(img1)  ##vgg sur dlib chtarhom ghaltin
+            
+            st.write(f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} %</h2>",unsafe_allow_html=True,)
+        
+            col1,col2,col3,col4,col5,col6=st.columns(6)
+        
+            btn_suivat=col6.button("suivant")   
+            if btn_suivat:
+                switch_page("Régles") 
 
 
-if image is not None:
-   
-
-    
-    try:
-        pil_image = Image.open(io.BytesIO(image.read()))
-        
-        image_array = np.array(pil_image)
-
-        # Initialize and store image_array in session state
-        st.session_state.image_array = image_array
-        
-        
-        
-        img1 = analyze_facial_features(image_array)
-        col1,col2,col3=st.columns(3)
-        col2.image(img1)
-        shape, pred, new_img = predict_face_shape(image_array) ##vgg  sur extracted 
-        #shape, pred, new_img = predict_face_shape(img1)  ##vgg sur dlib chtarhom ghaltin
-        
-        st.write(f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} %</h2>",unsafe_allow_html=True,)
-        col1,col2,col3,col4,col5,col6=st.columns(6)
-        btn_suivat=col6.button("suivant")   
-        if btn_suivat:
-            switch_page("Régles") 
-    except:
-        
-        st.write("SVP esseyer une autre image")
-
+except Exception as e:
+    st.write("Veuillez SVP sélectionner autre images...")
 
 
