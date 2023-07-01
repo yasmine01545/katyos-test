@@ -287,44 +287,62 @@ def predict_face_shape(image_array):
 
 
 
-camera_photo = st.camera_input("Trouvez la forme de votre visage", label_visibility="hidden")
+try:
 
-if camera_photo is not None:
-    bytes_data = camera_photo.getvalue()
-    
-    
-    cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
+    camera_photo = st.camera_input("Trouvez la forme de votre visage", label_visibility="hidden")
 
-    st.session_state.cv2_img=cv2_img
-  
-    shape, pred, new_img = predict_face_shape(cv2_img)
-    img1  = analyze_facial_features(new_img)
-    col1,col2,col3=st.columns(3)
-    col2.image(img1)
-    
-    
-    st.write(
-    f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} % </h2>",
-    unsafe_allow_html=True,)
+    if camera_photo is not None:
+        bytes_data = camera_photo.getvalue()
+        
+        
+        cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
 
+        st.session_state.cv2_img=cv2_img
 
-    btn = st.markdown("""
-            <style>
-            div.stButton > button:first-child {
-                background-color: #8fdeed;
-            color:#3e07b4;
-                font-size:25px;
-                height:3em;
-                width:15em;
-                border-radius:0.75rem;
+        shape, pred, new_img = predict_face_shape(cv2_img)
+        
+        img1  = analyze_facial_features(new_img)
+        
+        col1,col2,col3=st.columns(3)
+        if img1 is  None:
+                col1.write("Veuillez SVP suivre les conseils")
                 
-            }
-            div.stButton > button:hover {
-            background-color: #06f3ff;
-            color:#ffffff;
-            border: 2px solid white;                    
-    }       </style>""", unsafe_allow_html=True)
+        else:
+                col2.image(img1)
 
+            
+        
+                st.write(
+                f"<h2>La forme de votre visage est : {shape} avec une probabilité de : {pred} % </h2>",
+                unsafe_allow_html=True,)
+
+
+                btn = st.markdown("""
+                        <style>
+                        div.stButton > button:first-child {
+                            background-color: #8fdeed;
+                        color:#3e07b4;
+                            font-size:25px;
+                            height:3em;
+                            width:15em;
+                            border-radius:0.75rem;
+                            
+                        }
+                        div.stButton > button:hover {
+                        background-color: #06f3ff;
+                        color:#ffffff;
+                        border: 2px solid white;                    
+                }       </style>""", unsafe_allow_html=True)
+
+
+
+                col1,col2,col3,col4,col5,col6=st.columns(6)
+                btn_suivat=col6.button("suivant")   
+                if btn_suivat:
+                    switch_page("Régles") 
+
+except Exception as e:
+    st.write("Error")
 
 
     col1,col2,col3,col4,col5,col6=st.columns(6)
