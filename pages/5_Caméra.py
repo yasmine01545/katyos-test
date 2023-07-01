@@ -286,7 +286,7 @@ def predict_face_shape(image_array):
 
 
 
-
+st.session_state.clear()
 
 camera_photo = st.camera_input("Trouvez la forme de votre visage", label_visibility="hidden")
 
