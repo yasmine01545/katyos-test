@@ -320,7 +320,6 @@ btn = st.markdown("""
     }       </style>""", unsafe_allow_html=True)
 
 
-
 try:
     if image is not None:
         #col1,col2,col3=st.columns(3)
@@ -347,6 +346,6 @@ try:
 
 
 except Exception as e:
-    st.write("Veuillez SVP sélectionner autre image...")
+    st.write("Veuillez SVP sélectionner autre images...")
 
 
