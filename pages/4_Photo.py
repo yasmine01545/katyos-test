@@ -324,9 +324,9 @@ btn = st.markdown("""
 
 
 if image is not None:
-    #col1,col2,col3=st.columns(3)
+   
 
-    #col2.image(image)
+    
     try:
         pil_image = Image.open(io.BytesIO(image.read()))
         
@@ -335,7 +335,7 @@ if image is not None:
         # Initialize and store image_array in session state
         st.session_state.image_array = image_array
         
-        #st.session_state.btn_mesure = True
+        
         
         img1 = analyze_facial_features(image_array)
         col1,col2,col3=st.columns(3)
