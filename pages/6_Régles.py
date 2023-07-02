@@ -191,6 +191,20 @@ select_type = st.selectbox(
 select_style = st.selectbox(
     "Quel style de lunettes recherchez-vous ?",
     options=(
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         "élégant",
        
         "sportif",
@@ -205,17 +219,17 @@ select_style = st.selectbox(
         " branché ",
         "rétro",
         "audacieux",
-         "sophistiqué",
+       
         "intellectuel",
         "vinatge",
         "rock",
         "tendance",
          "coquette",
         "mode",
-        " branché ",
+       
         "sympathique",
         "intemporel",
-        "audacieux",
+        
         "féminine",
         "estival",
         "coquine",
