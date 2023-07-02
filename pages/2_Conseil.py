@@ -11,6 +11,8 @@ st.header("2 Regarder droit vers la caméra")
 st.header("3 Garder le visage fixe et ne souriez pas")
 st.header("4 Enlever vos lunettes si vous en portez")
 st.header("5 éloingner vos cheveux de votre visage")
+st.header("5 éloingner vos cheveux de votre visage")
+st.header("6 Enlevez votre chapeau ou votre foulard ")
 btn = st.markdown("""
             <style>
             div.stButton > button:first-child {
