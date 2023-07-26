@@ -309,9 +309,7 @@ if pre :
 
             st.write(message, unsafe_allow_html=True)
                
-            #st.subheader("Vous pouvez trouver votre monture dans notre mall :")
-            #message = f"[Cliquez ici pour accéder au site]({url})"
-            #st.markdown(message, unsafe_allow_html=True)
+            
         else:
             
 
