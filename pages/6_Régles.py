@@ -305,10 +305,13 @@ if pre :
             
             
             url = f"https://katyos.com/3-lunettes-{encoded_select_type}-?q=Formes-{encoded_prediction_monture}"
-                            
-            st.subheader("Vous pouvez trouver votre monture dans notre mall :")
-            message = f"[Cliquez ici pour accéder au site]({url})"
-            st.markdown(message, unsafe_allow_html=True)
+            message = f'<h3>Vous pouvez trouver votre monture dans notre mall :" </h3> <a href="{url}" style="display: inline-block; padding: 10px; background-color: #3e07b4; color: white; text-decoration: none;">Cliquez ici pour accéder au site</a>'
+
+            st.write(message, unsafe_allow_html=True)
+               
+            #st.subheader("Vous pouvez trouver votre monture dans notre mall :")
+            #message = f"[Cliquez ici pour accéder au site]({url})"
+            #st.markdown(message, unsafe_allow_html=True)
         else:
             
 
