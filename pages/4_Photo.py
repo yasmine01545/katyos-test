@@ -272,17 +272,7 @@ def extract_face(img, target_size=(224, 224)):
 
 
 
-#function extract_face
-#cette fonction extrait le visage de différentes images
- #   1) trouve la boîte englobante du visage
-  #  2) élargit légèrement les limites supérieure et inférieure pour inclure tout le visage
-   # 3) recadrer en forme de carré
-    #4) redimensionner à la taille de l'image cible pour la modélisation'''
-           
-     #1. détecter les visages dans une image
-#2agrandissez le haut et le bas de la boîte englobante de 10 pixels pour vous assurer qu'elle capture tout le visage
-#3 recadrez l'image en une image carrée en définissant la largeur = new_height et développez la boîte à une nouvelle largeur
-#redimensionner l'image à la taille de pixel cible
+
 
 
 # load the model
