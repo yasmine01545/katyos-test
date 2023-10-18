@@ -6,12 +6,11 @@ st.set_page_config(
     )
 st.title("     Quelques conseils avant de commencer     ")
 st.markdown("------")
-st.header("1 Placer toi dans un endroit bien éclairé")
-st.header("2 Regarder droit vers la caméra")
-st.header("3 Garder le visage fixe et ne souriez pas")
-st.header("4 Enlever vos lunettes si vous en portez")
-st.header("5 éloingner vos cheveux de votre visage")
-
+st.header("1 Placez vous dans un endroit bien éclairé")
+st.header("2 Regardez droit vers la caméra")
+st.header("3 Gardez votre visage fixe et ne souriez pas")
+st.header("4 Enlevez vos lunettes si vous en portez")
+st.header("5 Dégagez votre visage en éloignant vos cheveux")
 st.header("6 Enlevez votre chapeau ou votre foulard ")
 btn = st.markdown("""
             <style>
